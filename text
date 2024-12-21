@@ -1,0 +1,35 @@
+const subjectsByBoard = {
+            aqa: [
+                { name: "Further Mathematics(Level 2)", code: "8365" },
+                { name: "Science Single Award", code: "5961" },
+                { name: "Science Double Award", code: "5962" },
+                // Add more AQA subjects as needed
+            ],
+            cambridge: [
+                { name: "Mathematics", code: "0580" },
+                { name: "Additional Mathematics", code: "0606" },
+                { name: "International Mathematics", code: "0607" },
+                { name: "Mathematics (9 - 1)", code: "0980" },
+                { name: "Mathematics (US)", code: "0444" },
+                { name: "Biology", code: "0610" },
+                { name: "Biology(9 - 1)", code: "0970" },
+                { name: "Chemistry", code: "0620" },
+                { name: "Chemistry(9 - 1)", code: "0971" },
+                { name: "Physical science", code: "0652" },
+                { name: "Physics", code: "0625" },
+                { name: "Physics(9 - 1)", code: "0972" },
+                { name: "Combined Science", code: "0653" },
+                { name: "Co - ordinated Sciences(9 - 1)", code: "0973" },
+                { name: "Co - ordinated Sciences(Double)", code: "0654" },
+                { name: "Computer Science", code: "0478" },
+                { name: "Computer Science(9 - 1)", code: "0984" },
+            ],
+            edexcel: [
+                { name: "Mathematics", code: "1MA1", papers: ["Paper 1", "Paper 2"] },
+                // Add more Edexcel subjects as needed
+            ],
+            ocr: [
+                { name: "Mathematics", code: "J560", papers: ["Paper 1", "Paper 2"] },
+                // Add more OCR subjects as needed
+            ],
+        };

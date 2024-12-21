@@ -1,0 +1,152 @@
+.top_heading{
+    color:brown;
+    font-weight: bold;
+    text-align: center;
+}
+#side_heading{
+    color:rgb(42, 165, 108);
+    font-weight: bold;
+    text-align: left;
+}
+#side_heading_1{
+    color:rgb(110, 52, 5);
+    font-weight: bold;
+    text-align: left;
+}
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    padding: 10px 0;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    justify-content: right;
+    padding: 0;
+}
+
+.nav-links li {
+    margin: 0 15px;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    padding: 8px 16px;
+    transition: background-color 0.3s;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+    background-color: #555;
+    border-radius: 5px;
+}
+
+main {
+    padding: 20px;
+    text-align: center;
+}
+
+section {
+    margin: 20px 0;
+}
+
+form {
+    max-width: 400px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+form input,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    background-color: #333;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+body {
+    font-family: Arial, sans-serif;
+}
+
+.tabs {
+    display: flex;
+    cursor: pointer;
+    background-color: #f1f1f1;
+    border: 1px solid #ccc;
+}
+
+.tab {
+    flex: 1;
+    padding: 14px;
+    text-align: center;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    transition: background-color 0.3s;
+}
+
+.tab:hover {
+    background-color: #ddd;
+}
+
+.tab-content {
+    border: 1px solid #ccc;
+    padding: 20px;
+    display: none; /* Hide all tab content by default */
+}
+
+.tab-content.active {
+    display: block; /* Show the active tab content */
+}
+
+.tab.active {
+    background-color: #ccc; /* Highlight the active tab */
+}
+
+.dropdown-container {
+    margin-bottom: 15px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#output {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #f9f9f9;
+  }

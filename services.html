@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Conditional Dropdowns</title>
+  <link rel = "stylesheet" href="style.css"/>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="contactus.html">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+  <div class="dropdown-container">
+    <label for="boards">Boards:</label>
+    <select id="boards" onchange="updateLevels()">
+      <option value="">Select Board</option>
+      <option value="Cambridge">Cambridge</option>
+      <option value="AQA">AQA</option>
+      <option value="edexcel">edexcel</option>
+      <option value="ocr">OCR</option>
+    </select>
+  </div>
+
+  <div class="dropdown-container">
+    <label for="levels">Levels:</label>
+    <select id="levels" onchange="updateSubjects()">
+      <option value="">Select Level</option>
+    </select>
+  </div>
+
+  <div class="dropdown-container">
+    <label for="subjects">Subjects:</label>
+    <select id="subjects" onchange="updatePapers()">
+      <option value="">Select Subject</option>
+    </select>
+  </div>
+
+  <div class="dropdown-container">
+    <label for="papers">Papers:</label>
+    <select id="papers">
+      <option value="">Select Paper</option>
+    </select>
+  </div>
+
+  <button onclick="displaySelections()">Submit</button>
+
+  <div id="output"></div>
+
+  <script>
+    // Data for conditional dropdowns
+    const data = {
+        Cambridge: {
+        levels: ["GCSE","IGCSE","ACE","A"],
+        subjects: {
+          "GCSE": ["Mathematics", "Science"],
+          "IGCSE": ["Mathematics - 0580","Additional Mathematics - 0606","International Mathematics - 0607","Mathematics (9 - 1) - 0980",
+            "Mathematics (US) - 0444", "Biology - 0610","Biology(9 - 1) - 0970","Chemistry - 0620","Chemistry(9 - 1) - 0971","Physical science - 0652","Physics - 0625","Physics(9 - 1) - 0972","Combined Science - 0653","Co - ordinated Sciences(9 - 1) - 0973","Co - ordinated Sciences(Double) - 0654","Computer Science - 0478","Computer Science(9 - 1) - 0984"
+          ],
+          "ACE": ["Physics", "Chemistry"],
+          "A":[]
+        },
+        papers: {
+          "Mathematics": ["Paper 1", "Paper 2"],
+          "Science": ["Paper 1", "Paper 2"],
+          "English": ["Paper 1", "Paper 2"],
+          "Physics": ["Paper 1", "Paper 2"],
+          "Chemistry": ["Paper 1", "Paper 2"]
+        }
+      },
+      ICSE: {
+        levels: ["High School", "Senior Secondary"],
+        subjects: {
+          "High School": ["History", "Geography"],
+          "Senior Secondary": ["Biology"]
+        },
+        papers: {
+          "History": ["P1", "P2"],
+                "Geography": ["P1", "P2"],
+        "Biology": ["P1", "P2"]
+      }
+    }
+  };
+
+    // Function to update Levels based on the selected Board
+    function updateLevels() {
+      const board = document.getElementById("boards").value;
+      const levelsDropdown = document.getElementById("levels");
+      levelsDropdown.innerHTML = '<option value="">Select Level</option>';
+
+      if (board && data[board]) {
+        data[board].levels.forEach(level => {
+          const option = document.createElement("option");
+          option.value = level;
+          option.textContent = level;
+          levelsDropdown.appendChild(option);
+        });
+      }
+      document.getElementById("subjects").innerHTML = '<option value="">Select Subject</option>';
+      document.getElementById("papers").innerHTML = '<option value="">Select Paper</option>';
+    }
+
+    // Function to update Subjects based on the selected Level
+    function updateSubjects() {
+      const board = document.getElementById("boards").value;
+      const level = document.getElementById("levels").value;
+      const subjectsDropdown = document.getElementById("subjects");
+      subjectsDropdown.innerHTML = '<option value="">Select Subject</option>';
+
+      if (board && level && data[board] && data[board].subjects[level]) {
+        data[board].subjects[level].forEach(subject => {
+          const option = document.createElement("option");
+          option.value = subject;
+          option.textContent = subject;
+          subjectsDropdown.appendChild(option);
+        });
+      }
+      document.getElementById("papers").innerHTML = '<option value="">Select Paper</option>';
+    }
+
+    // Function to update Papers based on the selected Subject
+    function updatePapers() {
+      const board = document.getElementById("boards").value;
+      const subject = document.getElementById("subjects").value;
+      const papersDropdown = document.getElementById("papers");
+      papersDropdown.innerHTML = '<option value="">Select Paper</option>';
+
+      if (board && subject && data[board] && data[board].papers[subject]) {
+        data[board].papers[subject].forEach(paper => {
+          const option = document.createElement("option");
+          option.value = paper;
+          option.textContent = paper;
+          papersDropdown.appendChild(option);
+        });
+      }
+    }
+
+    // Function to display selected options
+    function displaySelections() {
+      const board = document.getElementById("boards").value;
+      const level = document.getElementById("levels").value;
+      const subject = document.getElementById("subjects").value;
+      const paper = document.getElementById("papers").value;
+
+      const outputDiv = document.getElementById("output");
+      outputDiv.innerHTML = `
+        <h2>Selected Options:</h2>
+        <p><strong>Board:</strong> ${board || "None"}</p>
+        <p><strong>Level:</strong> ${level || "None"}</p>
+        <p><strong>Subject:</strong> ${subject || "None"}</p>
+        <p><strong>Paper:</strong> ${paper || "None"}</p>
+      `;
+    }
+  </script>
+</body>
+</html>
+
